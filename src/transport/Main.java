@@ -28,6 +28,18 @@ public class Main {
         bus3.getBestCircleTime();
         bus1.getMaxSpeed();
 
+        DriverD<Bus> busDriver = new DriverD<>("Inokentyy", true, 4);
+        System.out.println(busDriver.participateInTheRace(bus2));
+
+        DriverB<Car> fernandoAlonso = new DriverB<>("Fernando Alonso", true, 9);
+        fernandoAlonso.participateInTheRace(auto1);
+
+        System.out.println(busDriver.refuelTheCar());
+        System.out.println(fernandoAlonso.refuelTheCar());
+
+        DriverC<Truck> truckDriver = new DriverC<>("voditel gruzovika", true, 12);
+        System.out.println(truckDriver.participateInTheRace(truck1));//не понимаю, почему не выводит в консоль без "sout"?
+
     }
 
 }

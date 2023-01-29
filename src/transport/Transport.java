@@ -42,6 +42,8 @@ public abstract class Transport implements Competing {
         this.engineVolume = engineVolume <= 0 ? 1.5 : engineVolume;
     }
 
+    public abstract void printType();
+
     @Override
     public String toString() {
         return "Transport: " +

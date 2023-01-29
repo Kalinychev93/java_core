@@ -3,9 +3,51 @@ package transport;
 import java.text.DecimalFormat;
 
 public class Car extends Transport{
+    private TypeOfBody typeOfBody;
+    enum TypeOfBody {
+        Sedan("Седан"),
+        Hatchback("Хэтчбек"),
+        Coupe("Купе"),
+        Universal("Универсал"),
+        SUV("Внедорожник"),
+        Crossover("Кроссовер"),
+        Pickup("Пикап"),
+        Van("Фургон"),
+        Minivan("Минивэн");
 
-    public Car(String brand, String model, double engineVolume) {
+        private String name;
+
+        TypeOfBody(String name) {
+            this.name = name;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        @Override
+        public String toString() {
+            return "тип кузова: " + name;
+        }
+    }
+
+
+    public Car(String brand, String model, double engineVolume, TypeOfBody typeOfBody) {
         super(brand, model, engineVolume);
+        this.setTypeOfBody(typeOfBody);
+    }
+
+    public TypeOfBody getTypeOfBody() {
+        return typeOfBody;
+    }
+
+    public void setTypeOfBody(TypeOfBody typeOfBody) {
+        this.typeOfBody = typeOfBody;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + ", " + typeOfBody;
     }
 
     @Override
@@ -16,6 +58,15 @@ public class Car extends Transport{
     @Override
     public void stop() {
         System.out.println("Автомобиль " + getBrand() + " " + getModel() + " закончил движение");
+    }
+
+    @Override
+    public void printType() {
+        if (getTypeOfBody() == null) {
+            System.out.println("Данных по транспортному средству недостаточно");
+        } else {
+            System.out.println(getTypeOfBody());
+        }
     }
 
     @Override

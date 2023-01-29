@@ -4,10 +4,60 @@ import java.text.DecimalFormat;
 
 public class Bus extends Transport {
 
-    public Bus(String brand, String model, double engineVolume) {
+    private Capacity capacity;
+    public Bus(String brand, String model, double engineVolume, Capacity capacity) {
         super(brand, model, engineVolume);
+        this.capacity = capacity;
     }
 
+    public Capacity getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(Capacity capacity) {
+        this.capacity = capacity;
+    }
+
+    enum Capacity{
+        EspeciallySmall(0, 10),
+        Small(11,25),
+        Average(26,50),
+        Big(51,80),
+        EspeciallyBig(81,120);
+
+        private int minNumber;
+        private int maxNumber;
+
+        Capacity(int minNumber, int maxNumber) {
+            this.minNumber = minNumber;
+            this.maxNumber = maxNumber;
+        }
+
+        Capacity(){
+        }
+
+        public int getMinNumber() {
+            return minNumber;
+        }
+
+        public int getMaxNumber() {
+            return maxNumber;
+        }
+
+        public static Capacity getValue(int value){
+            for(Capacity e : Capacity.values()){
+                if(value >= e.getMinNumber() && value <= e.getMaxNumber()){
+                    System.out.println(e);
+                    return e;
+                }
+            }
+            return null;
+        }
+        @Override
+        public String toString() {
+            return "Вместимость: от " + minNumber + " до " + maxNumber;
+        }
+    }
     @Override
     public void start() {
         System.out.println("Автобус начал движение");
@@ -19,8 +69,22 @@ public class Bus extends Transport {
     }
 
     @Override
+    public void printType() {
+        if (getCapacity() == null) {
+            System.out.println("Данных по транспортному средству недостаточно");
+        } else {
+            System.out.println(getCapacity());
+        }
+    }
+
+    @Override
     public void getPitStop() {
         System.out.println("Автобусу " + getBrand() + " " + getModel() + " необходим пит-стоп");
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + ", " + getCapacity();
     }
 
     @Override

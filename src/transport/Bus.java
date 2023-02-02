@@ -103,4 +103,14 @@ public class Bus extends Transport {
         double maxSpeed = (double) (minBound + (maxBound - minBound) * Math.random());
         System.out.println("Максимальная скорость " + getBrand() + " " + getModel() + " = " + bgd.format(maxSpeed));
     }
+
+    @Override
+    public void getDiagnosed(){
+        try {
+            throw new TransportTypeException("Автобусы не должны проходить диагностику");
+        } catch (TransportTypeException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

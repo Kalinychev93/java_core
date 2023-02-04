@@ -12,10 +12,22 @@ public class Main {
 
         Truck truck1 = new Truck("Volvo", "FH16", 7.8, Truck.LoadCapacity.getValue(2.3f));
 
-        auto1.getDiagnosed();
-        truck1.getDiagnosed();
-        bus1.getDiagnosed();
+        try{
+            bus1.getDiagnosed();
+        } catch (TransportTypeException e){
+            e.printStackTrace();
+        }
 
+        try{
+            auto1.getDiagnosed();
+        } catch (TransportTypeException e){
+            e.printStackTrace();
+        }
+
+        try{
+            truck1.getDiagnosed();
+        } catch (TransportTypeException e){
+            e.printStackTrace();
+        }
     }
-
 }

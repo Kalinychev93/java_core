@@ -99,7 +99,7 @@ public class Truck extends Transport {
     }
 
     @Override
-    public void getDiagnosed() {
+    public void getDiagnosed() throws TransportTypeException {
         System.out.println("Грузовику " + getBrand() + " " + getModel() + " необходимо пройти диагностику");
     }
 }

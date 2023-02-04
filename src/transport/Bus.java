@@ -105,12 +105,8 @@ public class Bus extends Transport {
     }
 
     @Override
-    public void getDiagnosed(){
-        try {
+    public void getDiagnosed() throws TransportTypeException {
             throw new TransportTypeException("Автобусы не должны проходить диагностику");
-        } catch (TransportTypeException e) {
-            e.printStackTrace();
         }
-    }
-
 }
+

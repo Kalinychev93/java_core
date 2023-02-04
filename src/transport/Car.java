@@ -95,7 +95,7 @@ public class Car extends Transport{
     }
 
     @Override
-    public void getDiagnosed() {
+    public void getDiagnosed() throws TransportTypeException {
         System.out.println("Автомобилю " + getBrand() + " " + getModel() + " необходимо пройти диагностику");
     }
 

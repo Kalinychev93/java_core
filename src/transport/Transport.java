@@ -43,7 +43,8 @@ public abstract class Transport implements Competing {
     }
 
     public abstract void printType();
-    public abstract void getDiagnosed();
+
+    public abstract void getDiagnosed() throws TransportTypeException;
 
     @Override
     public String toString() {

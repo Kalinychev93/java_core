@@ -97,4 +97,9 @@ public class Truck extends Transport {
         double maxSpeed = (double) (minBound + (maxBound - minBound) * Math.random());
         System.out.println("Максимальная скорость " + getBrand() + " " + getModel() + " = " + bgd.format(maxSpeed));
     }
+
+    @Override
+    public void getDiagnosed() throws TransportTypeException {
+        System.out.println("Грузовику " + getBrand() + " " + getModel() + " необходимо пройти диагностику");
+    }
 }

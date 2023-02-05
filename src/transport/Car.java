@@ -55,6 +55,8 @@ public class Car extends Transport{
         System.out.println("Автомобиль " + getBrand() + " " + getModel() + " начал движение");
     }
 
+
+
     @Override
     public void stop() {
         System.out.println("Автомобиль " + getBrand() + " " + getModel() + " закончил движение");
@@ -91,5 +93,11 @@ public class Car extends Transport{
         System.out.println("Максимальная скорость " + getBrand() + " " + getModel() + " = " + bgd.format(maxSpeed));
 
     }
+
+    @Override
+    public void getDiagnosed() throws TransportTypeException {
+        System.out.println("Автомобилю " + getBrand() + " " + getModel() + " необходимо пройти диагностику");
+    }
+
 }
 

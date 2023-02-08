@@ -13,6 +13,13 @@ public abstract class Driver {
         this.experience = experience;
     }
 
+    @Override
+    public String toString() {
+        return "Водитель: " + nameOfDriver +
+                ", лицензия - " + driverLicense +
+                ", опыт:" + experience + " лет;\n";
+    }
+
     public String getNameOfDriver() {
         return nameOfDriver;
     }

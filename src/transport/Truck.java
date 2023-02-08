@@ -2,6 +2,9 @@ package transport;
 
 import java.text.DecimalFormat;
 
+import java.util.List;
+import java.util.ArrayList;
+
 public class Truck extends Transport {
     private LoadCapacity loadCapacity;
     enum LoadCapacity{
@@ -40,8 +43,9 @@ public class Truck extends Transport {
             return "Грузоподъемность: от " + minWeight + ", до " + maxWeight;
         }
     }
-    public Truck(String brand, String model, double engineVolume, LoadCapacity loadCapacity) {
-        super(brand, model, engineVolume);
+
+    public Truck(String brand, String model, double engineVolume, Driver driver, List<Mechanic> mechanicList, LoadCapacity loadCapacity) {
+        super(brand, model, engineVolume, driver, mechanicList);
         this.loadCapacity = loadCapacity;
     }
 

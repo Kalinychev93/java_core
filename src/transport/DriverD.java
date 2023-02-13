@@ -21,11 +21,6 @@ public class DriverD<T extends Bus> extends Driver {
         return "Водитель " + getNameOfDriver() + " заправляет Автобус";
     }
 
-    @Override
-    public String toString() {
-        return "DriverD{}";
-    }
-
     public String participateInTheRace (T bus) {
         return "Водитель " + getNameOfDriver() + " управляет автобусом "
                 + bus.getBrand() + " " + bus.getModel() + " и будет участвовать в заезде";

@@ -17,7 +17,7 @@ public abstract class Driver {
     public String toString() {
         return "Водитель: " + nameOfDriver +
                 ", лицензия - " + driverLicense +
-                ", опыт:" + experience + " лет;\n";
+                ", опыт: " + experience + " лет;";
     }
 
     public String getNameOfDriver() {

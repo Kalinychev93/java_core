@@ -1,20 +1,13 @@
 package transport;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Transport implements Competing {
-//    Mechanic mechanic1 = new Mechanic("Alex", "Ivanov", "Eagles");
-//    Mechanic mechanic2 = new Mechanic("Justin", "Trudeau", "Maple Leafs");
-//    Mechanic mechanic3 = new Mechanic("Mohamed", "Salah", "Liverpool");
-
-
     private String brand;
     private String model;
     private double engineVolume;
     private Driver driver;
     private List<Mechanic> mechanicList;
-
 
     public Transport(String brand, String model, double engineVolume, Driver driver, List<Mechanic> mechanicList) {
         this.brand = brand == null || brand.isBlank() ? "default" : brand;
@@ -70,14 +63,23 @@ public abstract class Transport implements Competing {
 
     public abstract void printType();
 
-    public abstract void getDiagnosed() throws TransportTypeException;
+    public abstract Object getDiagnosed() throws TransportTypeException;
+
+    public boolean checkTransportNeedService() {
+        try {
+            getDiagnosed();
+        } catch (TransportTypeException e) {
+            return false;
+        }
+        return true;
+    }
 
     @Override
     public String toString() {
         return "Автомобиль марки " + brand + ", модель: " + model +
                 ", мощность двигателя = " + engineVolume +
                 ",\n" + driver +
-                "\n" + "Механики: " + mechanicList;
+                "\n" + mechanicList;
     }
 }
 

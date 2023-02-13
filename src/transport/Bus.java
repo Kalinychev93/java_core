@@ -86,7 +86,7 @@ public class Bus extends Transport {
 
     @Override
     public String toString() {
-        return super.toString() + ", " + getCapacity();
+        return super.toString() + ",\n " + getCapacity();
     }
 
     @Override
@@ -107,7 +107,7 @@ public class Bus extends Transport {
     }
 
     @Override
-    public void getDiagnosed() throws TransportTypeException {
+    public Object getDiagnosed() throws TransportTypeException {
             throw new TransportTypeException("Автобусы не должны проходить диагностику");
         }
 }

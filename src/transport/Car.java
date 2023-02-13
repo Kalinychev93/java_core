@@ -133,8 +133,8 @@ public class Car extends Transport{
     }
 
     @Override
-    public void getDiagnosed() throws TransportTypeException {
-        System.out.println("Автомобилю " + getBrand() + " " + getModel() + " необходимо пройти диагностику");
+    public Object getDiagnosed() throws TransportTypeException {
+        return "Автомобиль " + getBrand() + " " + getModel() + " проходит диагностику";
     }
 
 }

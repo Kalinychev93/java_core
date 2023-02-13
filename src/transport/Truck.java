@@ -3,11 +3,11 @@ package transport;
 import java.text.DecimalFormat;
 
 import java.util.List;
-import java.util.ArrayList;
 
 public class Truck extends Transport {
     private LoadCapacity loadCapacity;
-    enum LoadCapacity{
+
+    enum LoadCapacity {
         N1(0.0f, 3.5f),
         N2(3.51f, 12f),
         N3(12.01f, 460.0f);
@@ -28,9 +28,9 @@ public class Truck extends Transport {
             return maxWeight;
         }
 
-        public static LoadCapacity getValue(float value){
-            for(LoadCapacity e : LoadCapacity.values()){
-                if(value >= e.getMinWeight() && value <= e.getMaxWeight()){
+        public static LoadCapacity getValue(float value) {
+            for (LoadCapacity e : LoadCapacity.values()) {
+                if (value >= e.getMinWeight() && value <= e.getMaxWeight()) {
                     System.out.println(e);
                     return e;
                 }
@@ -103,7 +103,7 @@ public class Truck extends Transport {
     }
 
     @Override
-    public void getDiagnosed() throws TransportTypeException {
-        System.out.println("Грузовику " + getBrand() + " " + getModel() + " необходимо пройти диагностику");
+    public Object getDiagnosed() throws TransportTypeException {
+        return "Грузовик " + getBrand() + " " + getModel() + " проходит диагностику";
     }
 }

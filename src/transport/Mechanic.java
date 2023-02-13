@@ -1,5 +1,4 @@
 package transport;
-
 public class Mechanic {
 
     private String nameOfMechanic;
@@ -42,11 +41,11 @@ public class Mechanic {
         this.company = company;
     }
 
-    public void carryOutMaintenance(){
-        System.out.println("Провести техническое обслуживание");
+    public <T extends Transport> void carryOutMaintenance(T t) {
+        System.out.println(t.getBrand() + " " + t.getModel() + " обслуживается у механика " + this);
     }
 
-    public void repairTheCar(){
-        System.out.println("Починить автомобиль");
+    public <T extends Transport> void repairTheCar(T t){
+        System.out.println("Механик " + this + " ремонтирует " + t.getBrand() + " " + t.getModel());
     }
 }

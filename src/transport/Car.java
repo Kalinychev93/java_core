@@ -1,6 +1,7 @@
 package transport;
 
 import java.text.DecimalFormat;
+import java.util.List;
 
 public class Car extends Transport{
     private TypeOfBody typeOfBody;
@@ -31,10 +32,9 @@ public class Car extends Transport{
         }
     }
 
-
-    public Car(String brand, String model, double engineVolume, TypeOfBody typeOfBody) {
-        super(brand, model, engineVolume);
-        this.setTypeOfBody(typeOfBody);
+    public Car(String brand, String model, double engineVolume, Driver driver, List<Mechanic> mechanicList, TypeOfBody typeOfBody) {
+        super(brand, model, engineVolume, driver, mechanicList);
+        this.typeOfBody = typeOfBody;
     }
 
     public TypeOfBody getTypeOfBody() {
@@ -47,7 +47,7 @@ public class Car extends Transport{
 
     @Override
     public String toString() {
-        return super.toString() + ", " + typeOfBody;
+        return super.toString() + "\n" + typeOfBody;
     }
 
     @Override
@@ -55,7 +55,45 @@ public class Car extends Transport{
         System.out.println("Автомобиль " + getBrand() + " " + getModel() + " начал движение");
     }
 
+    @Override
+    public Driver getDriver() {
+        return super.getDriver();
+    }
 
+    @Override
+    public List<Mechanic> getMechanicList() {
+        return super.getMechanicList();
+    }
+
+    @Override
+    public void setMechanicList(List<Mechanic> mechanicList) {
+        super.setMechanicList(mechanicList);
+    }
+
+    @Override
+    public String getBrand() {
+        return super.getBrand();
+    }
+
+    @Override
+    public void setBrand(String brand) {
+        super.setBrand(brand);
+    }
+
+    @Override
+    public String getModel() {
+        return super.getModel();
+    }
+
+    @Override
+    public void setModel(String model) {
+        super.setModel(model);
+    }
+
+    @Override
+    public void setDriver(Driver driver) {
+        super.setDriver(driver);
+    }
 
     @Override
     public void stop() {
@@ -95,8 +133,8 @@ public class Car extends Transport{
     }
 
     @Override
-    public void getDiagnosed() throws TransportTypeException {
-        System.out.println("Автомобилю " + getBrand() + " " + getModel() + " необходимо пройти диагностику");
+    public Object getDiagnosed() throws TransportTypeException {
+        return "Автомобиль " + getBrand() + " " + getModel() + " проходит диагностику";
     }
 
 }

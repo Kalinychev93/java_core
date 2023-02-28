@@ -1,9 +1,6 @@
 package transport;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 
 public class Main {
@@ -99,6 +96,29 @@ public class Main {
 //        Проверка метода - провести тех.осмотр перед заездом
         for (int i = 0; i < transportToTheServiceStation.size(); i++) {
             sto.carryOutInspection(transportToTheServiceStation);
+        }
+
+//        Домашнее задание по теме Map
+        System.out.println("");
+        System.out.println("Homework. Theme Map");
+        System.out.println("");
+        Map<Transport, List<Mechanic>> autoMechanic = new HashMap<>();
+
+        autoMechanic.put(auto1, auto1.getMechanicList());
+        autoMechanic.put(auto2, auto2.getMechanicList());
+        autoMechanic.put(auto3, auto3.getMechanicList());
+        autoMechanic.put(auto4, auto4.getMechanicList());
+        autoMechanic.put(bus1, bus1.getMechanicList());
+        autoMechanic.put(bus2, bus2.getMechanicList());
+        autoMechanic.put(bus3, bus3.getMechanicList());
+        autoMechanic.put(bus4, bus4.getMechanicList());
+        autoMechanic.put(truck1, truck1.getMechanicList());
+        autoMechanic.put(truck2, truck2.getMechanicList());
+        autoMechanic.put(truck3, truck3.getMechanicList());
+        autoMechanic.put(truck4, truck4.getMechanicList());
+
+        for (Map.Entry<Transport, List<Mechanic>> mechanicsForAuto : autoMechanic.entrySet()) {
+            System.out.println("Автомобиль " + mechanicsForAuto.getKey().getBrand() + " " + mechanicsForAuto.getKey().getModel() + " обслуживается " + mechanicsForAuto.getValue());
         }
 
 

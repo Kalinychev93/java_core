@@ -98,31 +98,26 @@ public class Main {
             sto.carryOutInspection(transportToTheServiceStation);
         }
 
-//        Домашнее задание по теме Map
+//        Домашнее задание по теме Set.Iterator.
         System.out.println("");
-        System.out.println("Homework. Theme Map");
+        System.out.println("Homework. Theme: Set.Iterator.");
         System.out.println("");
-        Map<Transport, List<Mechanic>> autoMechanic = new HashMap<>();
 
-        autoMechanic.put(auto1, auto1.getMechanicList());
-        autoMechanic.put(auto2, auto2.getMechanicList());
-        autoMechanic.put(auto3, auto3.getMechanicList());
-        autoMechanic.put(auto4, auto4.getMechanicList());
-        autoMechanic.put(bus1, bus1.getMechanicList());
-        autoMechanic.put(bus2, bus2.getMechanicList());
-        autoMechanic.put(bus3, bus3.getMechanicList());
-        autoMechanic.put(bus4, bus4.getMechanicList());
-        autoMechanic.put(truck1, truck1.getMechanicList());
-        autoMechanic.put(truck2, truck2.getMechanicList());
-        autoMechanic.put(truck3, truck3.getMechanicList());
-        autoMechanic.put(truck4, truck4.getMechanicList());
+        Set<Driver> driverSet = new HashSet<>();
 
-        for (Map.Entry<Transport, List<Mechanic>> mechanicsForAuto : autoMechanic.entrySet()) {
-            System.out.println("Автомобиль " + mechanicsForAuto.getKey().getBrand() + " " + mechanicsForAuto.getKey().getModel() + " обслуживается " + mechanicsForAuto.getValue());
+        driverSet.add(driver1);
+        driverSet.add(driver2);
+        driverSet.add(driver3);
+        driverSet.add(driver4);
+        driverSet.add(driver5);
+        driverSet.add(driver6);
+        driverSet.add(driver6);
+
+        Iterator<Driver> driverIterator = driverSet.iterator();
+
+        while (driverIterator.hasNext()) {
+            System.out.println(driverIterator.next());
         }
-
-
-
 
 
     }
